@@ -1,4 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
+part 'games_list_element.g.dart';
+
 
 @JsonSerializable()
 class GamesListElement {
