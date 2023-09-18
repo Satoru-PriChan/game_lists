@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:dio/dio.dart';
 
 import 'data/remote/rest_client.dart';
@@ -14,11 +13,9 @@ var loggerNoStack = Logger(
 );
 
 Future main() async {
-  // dotenv
-  await dotenv.load(fileName: ".env");
   // dio
   final dio = Dio();
-  dio.options.headers["X-RapidAPI-Key"] = dotenv.env['X_RAPID_API_KEY'];
+  dio.options.headers["X-RapidAPI-Key"] = String.fromEnvironment('X_RAPID_API_KEY');
   final client = RestClient(dio);
   client.getGames().then((it) => logger.i(it));
   runApp(const MyApp());
