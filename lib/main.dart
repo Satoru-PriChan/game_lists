@@ -12,12 +12,17 @@ var loggerNoStack = Logger(
   printer: PrettyPrinter(methodCount: 0),
 );
 
-Future main() async {
+void main() {
   // dio
   final dio = Dio();
-  dio.options.headers["X-RapidAPI-Key"] = String.fromEnvironment('X_RAPID_API_KEY');
+  const apiKey = const String.fromEnvironment('X_RAPID_API_KEY');
+  dio.options.headers["X-RapidAPI-Key"] = apiKey;
+  loggerNoStack.i("apiKey is ${apiKey}");
+
+  // TODO: - This is for debug
   final client = RestClient(dio);
   client.getGames().then((it) => logger.i(it));
+
   runApp(const MyApp());
 
 }
