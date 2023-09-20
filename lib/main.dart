@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'data/const.dart';
 import 'data/remote/rest_client.dart';
 
 var logger = Logger(
@@ -13,18 +15,11 @@ var loggerNoStack = Logger(
 );
 
 void main() {
-  // dio
-  final dio = Dio();
-  const apiKey = const String.fromEnvironment('X_RAPID_API_KEY');
-  dio.options.headers["X-RapidAPI-Key"] = apiKey;
-  loggerNoStack.i("apiKey is ${apiKey}");
-
   // TODO: - This is for debug
-  final client = RestClient(dio);
+  final client = RestClient.Default();
   client.getGames().then((it) => logger.i(it));
 
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {

@@ -21,9 +21,9 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<GamesListElement>> getGames() async {
+  Future<List<GamesListElement>> getGames({rawgKey = Const.rawgKey}) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'key': rawgKey};
     final _headers = <String, dynamic>{
       r'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
     };
