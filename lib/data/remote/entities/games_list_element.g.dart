@@ -68,8 +68,8 @@ Game _$GameFromJson(Map<String, dynamic> json) => Game(
       json['esrbRating'] == null
           ? null
           : ESRBRating.fromJson(json['esrbRating'] as Map<String, dynamic>),
-      (json['shortScreenshots'] as List<dynamic>)
-          .map((e) => ShortScreenshots.fromJson(e as Map<String, dynamic>))
+      (json['shortScreenshots'] as List<dynamic>?)
+          ?.map((e) => ShortScreenshots.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -195,7 +195,7 @@ Map<String, dynamic> _$RequirementsToJson(Requirements instance) =>
     };
 
 Genre _$GenreFromJson(Map<String, dynamic> json) => Genre(
-      json['id'] as String?,
+      json['id'] as int?,
       json['name'] as String?,
       json['slug'] as String?,
       json['gamesCount'] as int?,

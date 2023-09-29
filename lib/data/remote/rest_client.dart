@@ -18,7 +18,8 @@ abstract class RestClient {
         requestHeader: true,
         requestBody: true,
         responseHeader: true,
-        maxWidth: 999
+        responseBody: false,
+        maxWidth: 99
     ));
     dio.options.headers["X-RapidAPI-Key"] = Const.apiKey;
     return RestClient(dio);
@@ -28,7 +29,7 @@ abstract class RestClient {
   @Headers(<String, dynamic>{
     "X-RapidAPI-Host" : "rawg-video-games-database.p.rapidapi.com",
   })
-  Future<List<GamesListElement>> getGames(
+  Future<GamesListElement> getGames(
     {@Query("key") String rawgKey = Const.rawgKey,}
   );
 }

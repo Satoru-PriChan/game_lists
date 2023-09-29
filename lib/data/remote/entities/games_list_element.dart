@@ -43,7 +43,7 @@ class Game {
   List<Store>? stores;
   List<Tag>? tags;
   ESRBRating? esrbRating;
-  List<ShortScreenshots> shortScreenshots;
+  List<ShortScreenshots>? shortScreenshots;
 
   Game(
       this.id,
@@ -152,7 +152,7 @@ class Requirements {
 
 @JsonSerializable()
 class Genre {
-  String? id;
+  int? id;
   String? name;
   String? slug;
   int? gamesCount;

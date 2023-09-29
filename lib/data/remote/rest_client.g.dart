@@ -21,7 +21,7 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<GamesListElement>> getGames({rawgKey = Const.rawgKey}) async {
+  Future<GamesListElement> getGames({rawgKey = Const.rawgKey}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'key': rawgKey};
     final _headers = <String, dynamic>{
@@ -30,7 +30,7 @@ class _RestClient implements RestClient {
     _headers.removeWhere((k, v) => v == null);
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<List<dynamic>>(_setStreamType<List<GamesListElement>>(Options(
+        .fetch<Map<String, dynamic>>(_setStreamType<GamesListElement>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -42,10 +42,7 @@ class _RestClient implements RestClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map(
-            (dynamic i) => GamesListElement.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = GamesListElement.fromJson(_result.data!);
     return value;
   }
 
