@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-
-import 'data/const.dart';
 import 'data/remote/rest_client.dart';
 
 var logger = Logger(
@@ -17,7 +13,7 @@ var loggerNoStack = Logger(
 void main() {
   // TODO: - This is for debug
   final client = RestClient.Default();
-  client.getGames().then((it) => logger.i(it));
+  client.getGames().then((it) => logger.i("Received game list count is ${it.length}"));
 
   runApp(const MyApp());
 }
