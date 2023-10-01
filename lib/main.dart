@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'data/remote/rest_client.dart';
+import 'data/remote/api_client/rest_client.dart';
 
 var logger = Logger(
   printer: PrettyPrinter(),

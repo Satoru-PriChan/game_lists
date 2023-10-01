@@ -1,7 +1,7 @@
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart' hide Headers;
-import '../const.dart';
+import '../../const.dart';
 import 'entities/games_list_element.dart';
 part 'rest_client.g.dart';
 
