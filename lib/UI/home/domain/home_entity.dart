@@ -1,4 +1,10 @@
 class HomeEntity {
+  List<HomeGameEntity>? games;
+
+  HomeEntity(this.games);
+}
+
+class HomeGameEntity {
   int id;
   String name;
   DateTime? released;
@@ -14,7 +20,7 @@ class HomeEntity {
   List<HomeTagEntity>? tags;
   List<Uri>? shortScreenshots;
 
-  HomeEntity(
+  HomeGameEntity(
       this.id,
       this.name,
       this.released,

@@ -1,10 +1,11 @@
 import 'package:games_list/data/remote/api_client/rest_client.dart';
 
+import '../../../UI/home/domain/home_entity.dart';
 import '../api_client/entities/games_list_element.dart';
 import 'game_translator.dart';
 
 abstract class GameRepositoryProtocol {
-  Future<GamesListElement> getGames();
+  Future<List<HomeGameEntity>> getGames();
 }
 
 class GameRepository implements GameRepositoryProtocol {
@@ -19,8 +20,8 @@ class GameRepository implements GameRepositoryProtocol {
   }
 
   @override
-  Future<GamesListElement> getGames() {
-    // TODO: - Translate GamesListElement to entities used in UI
-    return restClient.getGames();
+  Future<List<HomeGameEntity>> getGames() async {
+    final response = await restClient.getGames();
+    return gameTranslator.generate(response);
   }
 }

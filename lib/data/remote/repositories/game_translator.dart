@@ -7,17 +7,17 @@ abstract class GameTranslator {
     return _GameTranslator();
   }
 
-  List<HomeEntity> generate(GamesListElement entity);
+  List<HomeGameEntity> generate(GamesListElement entity);
 }
 
 class _GameTranslator implements GameTranslator {
   @override
-  List<HomeEntity> generate(GamesListElement entity) {
-    List<HomeEntity> result = [];
+  List<HomeGameEntity> generate(GamesListElement entity) {
+    List<HomeGameEntity> result = [];
     entity.results?.forEach((element) {
       if (element.id != null && element.name != null) {
         result.add(
-          HomeEntity(
+          HomeGameEntity(
               element.id!,
               element.name!,
               element.released != null ? DateTime.parse(element.released!) : null,
