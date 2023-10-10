@@ -1,7 +1,6 @@
 import 'package:games_list/data/remote/api_client/rest_client.dart';
 
 import '../../../UI/home/domain/home_entity.dart';
-import '../api_client/entities/games_list_element.dart';
 import 'game_translator.dart';
 
 abstract class GameRepositoryProtocol {
