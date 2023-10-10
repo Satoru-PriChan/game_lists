@@ -4,7 +4,7 @@ class HomeEntity {
   DateTime? released;
   bool tba;
   Uri? backgroundImage;
-  int? rating;
+  double? rating;
   int? ratingTop;
   List<HomeRatingEntity>? ratings;
   int? ratingsCount;
