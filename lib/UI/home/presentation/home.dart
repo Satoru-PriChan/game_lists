@@ -5,11 +5,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'home_controller.dart';
 
 class Home extends StatelessWidget {
-  final controller = Get.put(HomeController.Default());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("counter")),
+      appBar: AppBar(title: Text("home_title".tr)),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -17,6 +16,7 @@ class Home extends StatelessWidget {
             ElevatedButton(
               child: Text('Next Route'),
               onPressed: () {
+                // Get.find<HomeController>().onTap()
                 print("on pressed");
               },
             ),
