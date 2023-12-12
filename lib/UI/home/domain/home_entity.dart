@@ -1,3 +1,19 @@
+import 'dart:ffi';
+
+import 'package:games_list/UI/home/common/ui_error.dart';
+
+class HomeState {
+  HomeEntity entity = HomeEntity(null);
+  HomeLoadingState loadingState = HomeLoadingState.isFirstLoading;
+  UIError? error = null;
+}
+
+enum HomeLoadingState {
+  isFirstLoading,
+  isAdditionLoading,
+  loaded,
+}
+
 class HomeEntity {
   List<HomeGameEntity>? games;
 

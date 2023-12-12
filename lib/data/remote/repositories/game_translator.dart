@@ -2,7 +2,6 @@ import 'package:games_list/UI/home/domain/home_entity.dart';
 import 'package:games_list/data/remote/api_client/entities/games_list_element.dart';
 
 abstract class GameTranslator {
-  // TODO: - implement
   factory GameTranslator.Default() {
     return _GameTranslator();
   }
